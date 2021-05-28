@@ -1,0 +1,103 @@
+﻿@page "/"
+@using BlazorMongoDB.Data
+@inject BlazorMongoDB.IService.IWorkService workService
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-4">
+                <label>Name: </label>
+            </div>
+            <div class="col-md-8">
+                <input @bind="Work.Name" style="width:100%;" placeholder="Name" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <lable>Age</lable>
+            </div>
+            <div class="col-md-8">
+                <input @bind="Work.Age" style="width:100%;" placeholder="Age" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Roll :</label>
+            </div>
+            <div class="col-md-8">
+                <input @bind="Work.Roll" style="width:100%;" placeholder="Roll" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <button class="btn btn-primary" @onclick="@(e => Save())">Save</button>
+            </div>
+        </div>
+    </div>
+                <div class="col-md-8">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Work Id</th>
+                                <th>Name</th>
+                                <th>Roll</th>
+                                <th>Age</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Works.Count() > 0)
+                            {
+                @foreach (var stu in Works)
+                {
+                            <tr>
+                                <td>@stu.Id</td>
+                                <td>@stu.Name</td>
+                                <td>@stu.Roll</td>
+                                <td>@stu.Age</td>
+                                <td>
+                                    <button class="btn btn-primary" @onclick="@(e => Edit(@stu.Id))">Edit</button>
+                                    <button class="btn btn-danger" @onclick="@(e => Delete(@stu.Id))">Delete</button>
+                                </td>
+                            </tr>
+                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        @code{
+            Work Work = new Work();
+            List<Work> Works = new List<Work>();
+            protected override async Task OnInitializedAsync()
+            {
+                GetWorks();
+            }
+            private void GetWorks()
+            {
+                Works = workService.GetWorks();
+            }
+            private void Save()
+            {
+                workService.SaveOrUpdate(Work);
+                Reset();
+                GetWorks();
+            }
+            private void Reset()
+            {
+                Work = new Work();
+            }
+            private void Edit(string workId)
+            {
+                Work = workService.GetWork(workId);
+            }
+            private void Delete(string workId)
+            {
+                workService.Delete(workId);
+                GetWorks();
+            }
+
+        }
+
