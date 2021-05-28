@@ -1,4 +1,4 @@
-# Witryna z listą pracowników w IT
+# Witryna z listą studentów
 
 
 
