@@ -1,0 +1,4 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="C:\Users\dudos\Desktop\PhPMongoDB\BlazorMongoDB\obj\Debug\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="_content/BlazorInputFile" Path="C:\Users\dudos\.nuget\packages\blazorinputfile\0.2.0\build\..\staticwebassets\" />
+</StaticWebAssets>
