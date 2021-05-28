@@ -57,7 +57,6 @@ Aby otworzyć projekt, potrzebujesz:
 
 ## Usage
 
-`       namespace BlazorMongoDB
 {
     public class Program
     {
