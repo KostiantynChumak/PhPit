@@ -98,8 +98,7 @@ Room for improvement:
  
  
 
-   
-    + E-mail: kostiantynchumak@gmail.com
+  E-mail: kostiantynchumak@gmail.com
 
 
 
