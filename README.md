@@ -16,12 +16,13 @@
 
 
 ## General Information
-- Witryna wykonana w oparciu o C # umożliwia wprowadzenie danych studentów do przetwarzania i przechowywania informacji.
+- Witryna z listą studentów. Umożliwia wprowadzenie danych studentów do przetwarzania i przechowywania informacji.
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 
 ## Technologies Used
 - C#
+- HTML
 - Blazor
 - Crud
 - MongoBD
@@ -72,7 +73,6 @@ Aby otworzyć projekt, potrzebujesz:
                     webBuilder.UseStartup<Startup>();
                 });
     }
-} `
 
 
 ## Project Status
